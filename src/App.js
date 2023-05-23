@@ -26,6 +26,7 @@ export const theme = extendTheme(
 function App () {
   return (
     <ChakraProvider theme={theme}>
+
       <Nav />
 <Main />
     </ChakraProvider>

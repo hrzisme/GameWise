@@ -16,6 +16,7 @@ import { FiSearch } from 'react-icons/fi'
 import { BlogPost } from './BlogPost'
 import { posts } from './data'
 
+
 export const Main = () => (
   <Box bg="bg-surface">
     <Box bg="bg-accent" color="on-accent">

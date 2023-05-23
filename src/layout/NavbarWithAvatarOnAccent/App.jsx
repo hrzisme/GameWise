@@ -11,7 +11,7 @@ import {
 import * as React from 'react';
 import { FiHelpCircle, FiMenu, FiSearch, FiSettings } from 'react-icons/fi';
 import { Logo } from './Logo';
-
+import { ColorModeSwitcher} from '../../ColorModeSwitcher';
 export const Nav = () => {
   const isDesktop = useBreakpointValue({
     base: false,
@@ -56,6 +56,7 @@ export const Nav = () => {
                     icon={<FiHelpCircle fontSize="1.25rem" />}
                     aria-label="Help Center"
                   />
+                  <ColorModeSwitcher />
                 </ButtonGroup>
               </HStack>
             ) : (
