@@ -20,11 +20,8 @@ export const Nav = () => {
   return (
     <Box
       as="section"
-      pb={{
-        base: '12',
-        md: '24',
-      }}
-      mr="270"
+
+
     >
       <Box as="nav" bg="bg-accent" color="on-accent">
         <Container
@@ -38,11 +35,9 @@ export const Nav = () => {
               <Logo />
               {isDesktop && (
                 <ButtonGroup variant="ghost-on-accent" spacing="1">
-                  <Button>Home</Button>
-                  <Button aria-current="page">Dashboard</Button>
-                  <Button>Tasks</Button>
-                  <Button>Bookmarks</Button>
-                  <Button>Users</Button>
+
+                  <Button aria-current="page" fontSize="1.25rem">智游检索</Button>
+
                 </ButtonGroup>
               )}
             </HStack>

@@ -1,43 +1,33 @@
 import React from 'react'
 import {
   ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
 } from '@chakra-ui/react'
 import { ColorModeSwitcher } from './ColorModeSwitcher'
 import { Logo } from './Logo'
 import { Nav } from './layout/NavbarWithAvatarOnAccent/App'
-import SearchBar from './components/SearchBar'
+import { Main } from './layout/BlogWithHeroImage/App'
+import '@fontsource/fira-code'
+
+import { theme as proTheme } from '@chakra-ui/pro-theme'
+import { extendTheme, theme as baseTheme } from '@chakra-ui/react'
+export const theme = extendTheme(
+  {
+    colors: { ...baseTheme.colors, brand: baseTheme.colors.blue },
+    fonts: {
+      heading: "'Fira CodeVariable', -apple-system, system-ui, sans-serif",
+      body: "'Fira CodeVariable', -apple-system, system-ui, sans-serif",
+    },
+  },
+  proTheme,
+)
+
+
+
 function App () {
   return (
     <ChakraProvider theme={theme}>
       <Nav />
-      <SearchBar />
-      {/* <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box> */}
+<Main />
     </ChakraProvider>
   )
 }
