@@ -5,7 +5,7 @@ import {
 import { ColorModeSwitcher } from './ColorModeSwitcher'
 import { Logo } from './Logo'
 import { Nav } from './layout/NavbarWithAvatarOnAccent/App'
-import { Main } from './layout/BlogWithHeroImage/App'
+import  Main  from './layout/BlogWithHeroImage/App'
 import '@fontsource/fira-code'
 
 import { theme as proTheme } from '@chakra-ui/pro-theme'
@@ -28,7 +28,7 @@ function App () {
     <ChakraProvider theme={theme}>
 
       <Nav />
-<Main />
+      <Main />
     </ChakraProvider>
   )
 }

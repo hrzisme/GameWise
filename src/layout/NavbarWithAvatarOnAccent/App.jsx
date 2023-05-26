@@ -20,8 +20,6 @@ export const Nav = () => {
   return (
     <Box
       as="section"
-
-
     >
       <Box as="nav" bg="bg-accent" color="on-accent">
         <Container

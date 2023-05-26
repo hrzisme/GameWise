@@ -17,6 +17,8 @@ export const posts = [
       },
     ],
     publishedAt: 'Januar 28, 2023',
+    price: 16.00,
+    website: 'https://www.google.com',
     author: {
       name: 'Busola Banks',
       avatarUrl: 'https://tinyurl.com/2p8fy9ym',
@@ -39,6 +41,7 @@ export const posts = [
       },
     ],
     publishedAt: 'December 29, 2022',
+    price: 14.99,
     author: {
       name: 'Samy Tom',
       avatarUrl: 'https://tinyurl.com/2p8h98w8',
@@ -57,6 +60,7 @@ export const posts = [
       },
     ],
     publishedAt: 'November 30, 2022',
+    price: 16.99,
     author: {
       name: 'Angelina Gates',
       avatarUrl: 'https://tinyurl.com/2p98t7nh',
@@ -75,6 +79,7 @@ export const posts = [
       },
     ],
     publishedAt: 'October 31, 2022',
+    price: 19.99,
     author: {
       name: 'Busola Banks',
       avatarUrl: 'https://tinyurl.com/2p8fy9ym',

@@ -15,15 +15,18 @@ import { VscCircleFilled } from 'react-icons/vsc'
 
 export const BlogPost = (props) => {
   const { post, isHero } = props
+
   return (
     <Link
       _hover={{
         textDecor: 'none',
       }}
       role="group"
+      href={post.website}
+      isExternal
     >
       <Stack spacing="8">
-        <Box overflow="hidden">
+        <Box overflow="hidden" >
           <Image
             src={post.image}
             alt={post.title}
@@ -42,9 +45,11 @@ export const BlogPost = (props) => {
         <Stack spacing="6">
           <Stack spacing="3">
             <HStack spacing="1" fontSize="sm" fontWeight="semibold" color="accent">
-              <Text>{post.author.name}</Text>
+              <Text>{post.title}</Text>
               <Icon as={VscCircleFilled} boxSize="2" />
               <Text> {post.publishedAt}</Text>
+              <Icon as={VscCircleFilled} boxSize="2" color="orange.400"/>
+              <Text color="orange.400"> {post.price}$</Text>
             </HStack>
             <Heading
               size={useBreakpointValue({
