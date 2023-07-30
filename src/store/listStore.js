@@ -12,9 +12,13 @@ class ChannelStore {
     this.channelList = res.data.data.channels
   }
   searchGames = async (query) => {
-    // const res = await axios.post('http://127.0.0.1:5000/', { query: query });
-    const res = await axios.get(`http://82.156.158.41:5000/?query=${encodeURIComponent(query)}`);
-    // handle the response, for example return the results:
+
+    // Send the POST request
+    const res = await axios.post('http://82.156.158.41:5000/list', JSON.stringify(query), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
     this.channelList = res.data.map(game => ({
       ...game,
       tags: game.tags.slice(0, 4),

@@ -42,18 +42,7 @@ export const Nav = () => {
             {isDesktop ? (
               <HStack spacing="4">
                 <ButtonGroup variant="ghost-on-accent" spacing="1">
-                  <IconButton
-                    icon={<FiSearch fontSize="1.25rem" />}
-                    aria-label="Search"
-                  />
-                  <IconButton
-                    icon={<FiSettings fontSize="1.25rem" />}
-                    aria-label="Settings"
-                  />
-                  <IconButton
-                    icon={<FiHelpCircle fontSize="1.25rem" />}
-                    aria-label="Help Center"
-                  />
+
                   <ColorModeSwitcher />
                 </ButtonGroup>
               </HStack>

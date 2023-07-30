@@ -10,8 +10,10 @@ import {
   Stack,
   Text,
   Spinner,
+  Badge,
   Alert,
   AlertIcon,
+  Flex,
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { Modal, ModalOverlay, ModalContent, ModalBody} from '@chakra-ui/react';
@@ -20,23 +22,59 @@ import { FiSearch } from 'react-icons/fi'
 import { BlogPost } from './BlogPost'
 import { posts } from './data'
 import { useEffect,useState } from 'react'
-import  channlStore  from '../../store/listStore'
+import channlStore  from '../../store/listStore'
 import { observer } from 'mobx-react-lite'
 import { useToast } from '@chakra-ui/react'
+import bandageStore from '../../store/bandageStore';
 
 
 function Main(){
   const [searchValue, setSearchValue] = useState("");
   const [postList, setPostList] = useState(posts);
+  const [badgeList, setBadgeList] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const toast = useToast()
+  // const handleSubmit = async () => {
+  //   try {
+  //     setLoading(true);
+  //     if (searchValue.length > 0) {
+  //       // Start first request
+  //       await bandageStore.searchGames(searchValue);
+  //       setBadgeList(bandageStore.bandageList);
+  //       console.log(badgeList)
+  //       // Start second request with the result of the first one
+  //       await channlStore.searchGames(badgeList.next_post);
+  //       setPostList(channlStore.channelList);
+  //     }
+  //   } catch (error) {
+  //     // Use toast to display error message
+  //     toast({
+  //       title: "请求失败",
+  //       description: error.message,
+  //       status: "error",
+  //       duration: 3000,
+  //       isClosable: true,
+  //       position: "top-right"
+  //     });
+  //   } finally {
+  //     setLoading(false);
+  //
+  //   }
+  // }
   const handleSubmit = async () => {
     try {
       setLoading(true);
+      setBadgeList({});
       if (searchValue.length > 0) {
-        await channlStore.searchGames(searchValue);
+        // Start first request
+        await bandageStore.searchGames(searchValue);
+        const newBadgeList = bandageStore.bandageList;
+        setBadgeList(newBadgeList);
+        console.log(newBadgeList);
+        // Start second request with the result of the first one
+        await channlStore.searchGames(newBadgeList.next_post);
         setPostList(channlStore.channelList);
       }
     } catch (error) {
@@ -53,6 +91,8 @@ function Main(){
       setLoading(false);
     }
   }
+
+
   // useEffect(() => {
   //   channlStore.setChannelList()
   // }, [])
@@ -118,13 +158,13 @@ function Main(){
             <InputGroup
               size="lg"
               maxW={{
-                md: 'sm',
+                md: 'lg',
               }}
             >
               <InputLeftElement pointerEvents="none">
                 <Icon as={FiSearch} color="on-accent" boxSize="5" />
               </InputLeftElement>
-              <Input placeholder="Search" variant="filled" colorScheme="blue" value={searchValue}
+              <Input placeholder="例：我想游玩一款动作类2022年发布的免费游戏" variant="filled" colorScheme="blue" value={searchValue}
                      onChange={e => setSearchValue(e.target.value)}
                      onKeyPress={e => {
                 if (e.key === 'Enter') {
@@ -136,9 +176,19 @@ function Main(){
             {loading && (
               <Modal isOpen={loading} isCentered  >
                 <ModalOverlay />
-                <ModalContent>
+                <ModalContent maxW="80vw">
                   <ModalBody display="flex" alignItems="center" justifyContent="center" flexDirection="column" bg="bg-accent" color="on-accent" >
                     <Spinner />
+                    <Flex flexWrap="wrap" mt = "3">
+                      <Badge colorScheme='green' m={2}>发布日:{badgeList?.date}</Badge>
+                      <Badge colorScheme='blue' m={2}>名称:{badgeList?.game_name}</Badge>
+                      {badgeList && badgeList?.game_type && badgeList?.game_type.map((type, index) => (
+                        <Badge colorScheme='purple' m={2} key={index}>类型:{type}</Badge>
+                      ))}
+                      <Badge colorScheme='orange' m={2}>价格:{badgeList?.price}</Badge>
+                      {badgeList?.other !== "" && <Badge colorScheme='red' m={2}>其他:{badgeList?.other}</Badge>}
+                    </Flex>
+
                     <Box marginTop="1em">
                       <Text fontSize={{ base: 'lg', md: 'xl' }} fontWeight="extrabold" color="on-accent-muted">
                         正在请求中...
@@ -148,10 +198,19 @@ function Main(){
                 </ModalContent>
               </Modal>
             )}
-
+            <Flex alignItems="center" justifyContent="center" >
+              <Badge colorScheme='green' m={2}>发布日:{badgeList?.date?badgeList?.date:'暂未获取'}</Badge>
+              <Badge colorScheme='blue' m={2}>名称:{badgeList?.game_name?badgeList?.game_name:'暂未获取'}</Badge>
+              {badgeList && badgeList?.game_type && badgeList?.game_type.map((type, index) => (
+                <Badge colorScheme='purple' m={2} key={index}>类型:{type}</Badge>
+              ))}
+              <Badge colorScheme='orange' m={2}>价格:{badgeList?.price?badgeList?.price:'暂未获取'}</Badge>
+              {badgeList?.other !== "" && <Badge colorScheme='red' m={2}>其他:{badgeList?.other?badgeList?.other:"暂未获取"}</Badge>}
+            </Flex>
           </Stack>
         </Container>
       </Box>
+
       <Container
         pb={{
           base: '16',
@@ -162,6 +221,10 @@ function Main(){
           md: '-24',
         }}
       >
+
+
+
+
         <Stack
           spacing={{
             base: '16',

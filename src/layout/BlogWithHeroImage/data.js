@@ -1,9 +1,9 @@
 export const posts = [
   {
     id: '1',
-    title: 'How to write a great blog post',
+    title: '如何快速使用智游检索？',
     excerpt:
-      'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.',
+      '你可以这样提问。“我想玩反恐精英”，“我想玩一个动作游戏，最好有冒险元素。”对话引擎将自动为您推荐最合适的游戏。',
     image:
       'https://images.unsplash.com/photo-1524492449090-a4e289316d9c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1694&q=80',
     tags: [
@@ -16,8 +16,8 @@ export const posts = [
         color: 'green',
       },
     ],
-    publishedAt: 'Januar 28, 2023',
-    price: 16.00,
+    publishedAt: 'May 31, 2023',
+    price: 0,
     website: 'https://www.google.com',
     author: {
       name: 'Busola Banks',
