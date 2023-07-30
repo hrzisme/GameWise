@@ -34,7 +34,7 @@ export const Nav = () => {
               {isDesktop && (
                 <ButtonGroup variant="ghost-on-accent" spacing="1">
 
-                  <Button aria-current="page" fontSize="1.25rem">智游检索</Button>
+                  <Button aria-current="page" fontSize="1.25rem">GameWise</Button>
 
                 </ButtonGroup>
               )}

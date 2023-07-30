@@ -80,7 +80,7 @@ function Main(){
     } catch (error) {
       // Use toast to display error message
       toast({
-        title: "请求失败",
+        title: "Request failed",
         description: error.message,
         status: "error",
         duration: 3000,
@@ -133,7 +133,7 @@ function Main(){
                     md: 'md',
                   }}
                 >
-                  “智游”基于人工智能技术的游戏检索系统
+                  "GameWise" —— AI-based Game Search System
                 </Text>
                 <Heading
                   size={useBreakpointValue({
@@ -141,7 +141,7 @@ function Main(){
                     md: 'lg',
                   })}
                 >
-                  在超过 80,000 款游戏中找到你的下一个游戏
+                  Find your next game among over 80,000 games.
                 </Heading>
               </Stack>
               <Text
@@ -152,7 +152,7 @@ function Main(){
                 maxW="5xl"
                 color="on-accent-muted"
               >
-                摆脱桎梏，通过对话或输入游戏简介，智能推荐相似游戏，帮助用户快速发现你最爱玩的那一款游戏。
+                Break free from limitations. Simply by having a conversation or entering a game summary, GameWise can smartly suggest similar games, assisting you in quickly uncovering that one game you'll love to play.
               </Text>
             </Stack>
             <InputGroup
@@ -164,7 +164,7 @@ function Main(){
               <InputLeftElement pointerEvents="none">
                 <Icon as={FiSearch} color="on-accent" boxSize="5" />
               </InputLeftElement>
-              <Input placeholder="例：我想游玩一款动作类2022年发布的免费游戏" variant="filled" colorScheme="blue" value={searchValue}
+              <Input placeholder="Example: Give me a free action game released in 2022." variant="filled" colorScheme="blue" value={searchValue}
                      onChange={e => setSearchValue(e.target.value)}
                      onKeyPress={e => {
                 if (e.key === 'Enter') {
@@ -180,18 +180,18 @@ function Main(){
                   <ModalBody display="flex" alignItems="center" justifyContent="center" flexDirection="column" bg="bg-accent" color="on-accent" >
                     <Spinner />
                     <Flex flexWrap="wrap" mt = "3">
-                      <Badge colorScheme='green' m={2}>发布日:{badgeList?.date}</Badge>
-                      <Badge colorScheme='blue' m={2}>名称:{badgeList?.game_name}</Badge>
+                      <Badge colorScheme='green' m={2}>Release Date:{badgeList?.date}</Badge>
+                      <Badge colorScheme='blue' m={2}>Game Name:{badgeList?.game_name}</Badge>
                       {badgeList && badgeList?.game_type && badgeList?.game_type.map((type, index) => (
-                        <Badge colorScheme='purple' m={2} key={index}>类型:{type}</Badge>
+                        <Badge colorScheme='purple' m={2} key={index}>Type:{type}</Badge>
                       ))}
-                      <Badge colorScheme='orange' m={2}>价格:{badgeList?.price}</Badge>
-                      {badgeList?.other !== "" && <Badge colorScheme='red' m={2}>其他:{badgeList?.other}</Badge>}
+                      <Badge colorScheme='orange' m={2}>Price:{badgeList?.price}</Badge>
+                      {badgeList?.other !== "" && <Badge colorScheme='red' m={2}>Others:{badgeList?.other}</Badge>}
                     </Flex>
 
                     <Box marginTop="1em">
                       <Text fontSize={{ base: 'lg', md: 'xl' }} fontWeight="extrabold" color="on-accent-muted">
-                        正在请求中...
+                        Thinking...
                       </Text>
                     </Box>
                   </ModalBody>
@@ -199,13 +199,13 @@ function Main(){
               </Modal>
             )}
             <Flex alignItems="center" justifyContent="center" >
-              <Badge colorScheme='green' m={2}>发布日:{badgeList?.date?badgeList?.date:'暂未获取'}</Badge>
-              <Badge colorScheme='blue' m={2}>名称:{badgeList?.game_name?badgeList?.game_name:'暂未获取'}</Badge>
+              <Badge colorScheme='green' m={2}>Release Date:{badgeList?.date?badgeList?.date:'Not yet obtained'}</Badge>
+              <Badge colorScheme='blue' m={2}>Game Name:{badgeList?.game_name?badgeList?.game_name:'Not yet obtained'}</Badge>
               {badgeList && badgeList?.game_type && badgeList?.game_type.map((type, index) => (
-                <Badge colorScheme='purple' m={2} key={index}>类型:{type}</Badge>
+                <Badge colorScheme='purple' m={2} key={index}>Type:{type}</Badge>
               ))}
-              <Badge colorScheme='orange' m={2}>价格:{badgeList?.price?badgeList?.price:'暂未获取'}</Badge>
-              {badgeList?.other !== "" && <Badge colorScheme='red' m={2}>其他:{badgeList?.other?badgeList?.other:"暂未获取"}</Badge>}
+              <Badge colorScheme='orange' m={2}>Price:{badgeList?.price?badgeList?.price:'Not yet obtained'}</Badge>
+              {badgeList?.other !== "" && <Badge colorScheme='red' m={2}>Other:{badgeList?.other?badgeList?.other:"Not yet obtained"}</Badge>}
             </Flex>
           </Stack>
         </Container>

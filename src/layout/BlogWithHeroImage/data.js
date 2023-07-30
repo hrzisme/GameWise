@@ -1,9 +1,9 @@
 export const posts = [
   {
     id: '1',
-    title: '如何快速使用智游检索？',
+    title: 'How to use GameWise？',
     excerpt:
-      '你可以这样提问。“我想玩反恐精英”，“我想玩一个动作游戏，最好有冒险元素。”对话引擎将自动为您推荐最合适的游戏。',
+      'You could ask like this, "I want to play Counter-Strike," or "I want to play an action game, preferably with adventure elements." The dialogue engine will automatically recommend the most suitable game for you.',
     image:
       'https://images.unsplash.com/photo-1524492449090-a4e289316d9c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1694&q=80',
     tags: [
@@ -18,7 +18,7 @@ export const posts = [
     ],
     publishedAt: 'May 31, 2023',
     price: 0,
-    website: 'https://www.google.com',
+    website: '/',
     author: {
       name: 'Busola Banks',
       avatarUrl: 'https://tinyurl.com/2p8fy9ym',

@@ -49,7 +49,7 @@ export const BlogPost = (props) => {
               <Icon as={VscCircleFilled} boxSize="2" />
               <Text> {post.publishedAt}</Text>
               <Icon as={VscCircleFilled} boxSize="2" color="orange.400"/>
-              <Text color="orange.400"> {post.price}$</Text>
+              <Text color="orange.400"> {post.price === 0 ? 'Free' : `${post.price}$`}</Text>
             </HStack>
             <Heading
               size={useBreakpointValue({
